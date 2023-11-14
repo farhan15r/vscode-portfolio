@@ -8,6 +8,7 @@ import MailIcon from './icons/MailIcon';
 import AccountIcon from './icons/AccountIcon';
 import SettingsIcon from './icons/SettingsIcon';
 import styles from '../styles/Sidebar.module.css';
+import MoneyIcon from './icons/MoneyIcon';
 
 const sidebarTopItems = [
   {
@@ -30,6 +31,10 @@ const sidebarTopItems = [
     Icon: MailIcon,
     path: '/contact',
   },
+  {
+    Icon: MoneyIcon,
+    path: '/donate',
+  }
 ];
 
 const sidebarBottomItems = [
