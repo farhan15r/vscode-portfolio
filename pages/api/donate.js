@@ -75,7 +75,7 @@ const POST = async (req, res) => {
       }
     );
 
-    res.status(500).json(response.data);
+    res.status(201).json(response.data);
   } catch (error) {
     res.status(500).json({ message: "Something went wrong"});
   }
