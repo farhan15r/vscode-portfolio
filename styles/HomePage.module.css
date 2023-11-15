@@ -41,8 +41,19 @@
   position: relative;
 }
 
+.donate {
+  width: max-content;
+  color: #eee;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 1rem;
+  position: relative;
+}
+
 .bio::before,
-.bio::after {
+.bio::after,
+.donate::before,
+.donate::after {
   content: '';
   position: absolute;
   top: 0;
@@ -51,12 +62,14 @@
   left: 0;
 }
 
-.bio::before {
+.bio::before,
+.donate::before {
   background: var(--main-bg);
   animation: typewriter 2.5s steps(24) 500ms forwards;
 }
 
-.bio::after {
+.bio::after,
+.donate::after {
   margin-left: 0.4rem;
   width: 0.125em;
   background: var(--accent-color);

@@ -55,7 +55,7 @@ const DonatePage = () => {
 
       <div className={styles.container}>
         <div className={styles["container-md-50"]}>
-          <h3 className={styles.heading}>Or Fill Out This Form</h3>
+          <h3 className={styles.heading}>You have a lot of money? GIMME SOME MONEY!!</h3>
           <form className={styles.form} onSubmit={submitForm}>
             <div>
               <label htmlFor="name">Name</label>

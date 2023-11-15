@@ -31,9 +31,9 @@ const explorerItems = [
     icon: 'json_icon.svg',
   },
   {
-    name: 'github.md',
-    path: '/github',
-    icon: 'markdown_icon.svg',
+    name: 'donate.go',
+    path: '/donate',
+    icon: 'go_icon.svg',
   },
 ];
 
