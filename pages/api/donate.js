@@ -82,11 +82,11 @@ const POST = async (req, res) => {
           },
         ],
         expiry: {
-          duration: 1,
+          duration: 10,
           unit: "minutes",
         },
         page_expiry: {
-          duration: 10,
+          duration: 30,
           unit: "minutes",
         },
         callbacks: {
