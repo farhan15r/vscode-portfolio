@@ -7,7 +7,7 @@ const pool = new Pool({
   password: config.POSTGRES_PASSWORD,
   port: config.POSTGRES_PORT,
   database: config.POSTGRES_DB,
-  sslmode: config.POSTGRES_SSL_MODE,
+  ssl: config.POSTGRES_SSL_MODE,
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
