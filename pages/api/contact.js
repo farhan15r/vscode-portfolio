@@ -6,7 +6,7 @@ const notion = new Client({
 
 export default async (req, res) => {
   if (req.method !== 'POST') {
-    return res.status(405).json({ msg: 'Only POST requests are allowed' });
+    return res.status(405).json({ messages: 'Only POST requests are allowed' });
   }
   try {
     const { name, email, subject, message } = JSON.parse(req.body);
@@ -47,9 +47,9 @@ export default async (req, res) => {
         },
       },
     });
-    res.status(201).json({ msg: 'Success' });
+    res.status(201).json({ messages: 'Success' });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ msg: 'Failed' });
+    res.status(500).json({ messages: 'Failed' });
   }
 };

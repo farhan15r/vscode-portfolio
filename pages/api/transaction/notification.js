@@ -2,7 +2,7 @@ import TelegramBot from "node-telegram-bot-api";
 import config from "../../../utils/config";
 import pool from "../../../utils/db";
 
-export default async (req, res) => {
+const POST = async (req, res) => {
   const payload = req.body;
 
   try {
@@ -43,5 +43,13 @@ export default async (req, res) => {
 
   } catch (error) {
     res.status(500).json({ message: 'internal server error' });
+  }
+};
+
+export default async (req, res) => {
+  if (req.method === "POST") {
+    await POST(req, res);
+  } else {
+    res.status(405).json({ message: "Method not allowed" });
   }
 };

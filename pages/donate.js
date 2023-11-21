@@ -60,7 +60,15 @@ const DonatePage = () => {
         method: PAYMENT_METHODS[method].value,
       });
 
-      window.snap.pay(response.data.token);
+      if (response.data.token) {
+        window.snap.pay(response.data.token);
+      } else {
+        setAlert({
+          type: "error",
+          message: response.data.message,
+        });
+      }
+
     } catch (error) {
       setAlert({
         type: "error",

@@ -85,8 +85,6 @@ export async function getStaticProps() {
   );
   const orgs = await orgRes.json();
 
-  console.log(orgs);
-
   const repoRes = await fetch(
     `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`,
     {
@@ -95,10 +93,9 @@ export async function getStaticProps() {
       },
     }
   );
-
   let repos = await repoRes.json();
+
   repos = repos.filter((repo) => {
-    console.log(repo.html_url);
     return SHOWED_GITHUB_REPOS.includes(repo.html_url);
   });
 
