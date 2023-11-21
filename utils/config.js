@@ -29,6 +29,9 @@ const config = {
   MIDTRANS_BE_URL: process.env.MIDTRANS_BE_URL,
   MIDTRANS_FE_URL: process.env.MIDTRANS_FE_URL,
   PAYMENT_METHODS,
+
+  TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
+  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
 };
 
 export default config;

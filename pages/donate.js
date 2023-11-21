@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/DonatePage.module.css";
 import Head from "next/head";
 import config from "../utils/config";
 import axios from "axios";
 import Alert from "../components/Alert";
+import { useRouter } from "next/router";
 
 const DonatePage = () => {
   const [name, setName] = useState("");
@@ -14,11 +15,38 @@ const DonatePage = () => {
 
   const [alert, setAlert] = useState(null);
 
+  const router = useRouter();
+  const { transaction_status } = router.query;
+
   const {
     PAYMENT_METHODS,
     MIDTRANS_CLIENT_KEY: CLIENT_KEY,
     MIDTRANS_FE_URL,
   } = config;
+
+  useEffect(() => {
+    if (transaction_status == "pending") {
+      setAlert({
+        type: "warning",
+        message: "Your transaction is pending.",
+      });
+    } else if (transaction_status == "settlement") {
+      setAlert({
+        type: "success",
+        message: "Thanks, your donate already received.",
+      });
+    } else if (transaction_status == "cancel") {
+      setAlert({
+        type: "warning",
+        message: "Your transaction is canceled.",
+      });
+    } else if (transaction_status == "error") {
+      setAlert({
+        type: "error",
+        message: "Your transaction is error.",
+      });
+    }
+  }, [transaction_status]);
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -55,7 +83,9 @@ const DonatePage = () => {
 
       <div className={styles.container}>
         <div className={styles["container-md-50"]}>
-          <h3 className={styles.heading}>You have a lot of money? GIMME SOME MONEY!!</h3>
+          <h3 className={styles.heading}>
+            You have a lot of money? GIMME SOME MONEY!!
+          </h3>
           <form className={styles.form} onSubmit={submitForm}>
             <div>
               <label htmlFor="name">Name</label>
@@ -129,15 +159,13 @@ const DonatePage = () => {
           </form>
         </div>
       </div>
-      {
-        alert && (
-          <Alert
-            message={alert.message}
-            type={alert.type}
-            onClose={() => setAlert(null)}
-          />
-        )
-      }
+      {alert && (
+        <Alert
+          message={alert.message}
+          type={alert.type}
+          onClose={() => setAlert(null)}
+        />
+      )}
     </>
   );
 };

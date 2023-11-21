@@ -1,18 +1,15 @@
 import axios from "axios";
 import config from "../../utils/config";
+import pool from "../../utils/db";
+
+const { PAYMENT_METHODS, MIDTRANS_SERVER_KEY, MIDTRANS_BE_URL } = config;
 
 const validateEmail = (email) => {
-  const re = /\S+@\S+\.\S+/;
-  return re.test(email);
+  const regex = /\S+@\S+\.\S+/;
+  return regex.test(email);
 };
 
 const POST = async (req, res) => {
-  const {
-    PAYMENT_METHODS,
-    MIDTRANS_SERVER_KEY,
-    MIDTRANS_BE_URL,
-  } = config;
-
   const url = MIDTRANS_BE_URL;
   const auth = Buffer.from(MIDTRANS_SERVER_KEY + ":").toString("base64");
 
@@ -21,7 +18,7 @@ const POST = async (req, res) => {
     (item) => item.value === req.body.method
   );
   const method = PAYMENT_METHODS[methodIndex];
-  const total = payload.amount + method.fee;
+  const total = Number(payload.amount) + Number(method.fee);
 
   if (!validateEmail(payload.email)) {
     res.status(400).json({ message: "Invalid email" });
@@ -29,13 +26,40 @@ const POST = async (req, res) => {
   }
 
   const epoch = Math.floor(new Date().getTime() / 1000);
+  const idTransaction = `ORDER-${epoch}`;
 
+  const client = await pool.connect();
   try {
+
+    await client.query("BEGIN");
+    await client.query(
+      `INSERT INTO donations
+        (name, email, amount,
+        message, transaction_id)
+      VALUES
+        ($1, $2, $3, $4, $5)`,
+      [
+        payload.name,
+        payload.email,
+        payload.amount,
+        payload.message,
+        idTransaction,
+      ]
+    );
+    await client.query(
+      `INSERT INTO transactions
+        (id, status, total)
+      VALUES
+        ($1, $2, $3)`,
+      [idTransaction, "pending", total]
+    );
+    await client.query("COMMIT");
+
     const response = await axios.post(
       url,
       {
         transaction_details: {
-          order_id: `ORDER-${epoch}`,
+          order_id: idTransaction,
           gross_amount: total,
         },
         enabled_payments: [method.value],
@@ -57,13 +81,16 @@ const POST = async (req, res) => {
             name: "Admin Fee",
           },
         ],
-        "expiry": {
-          "duration": 1,
-          "unit": "minutes",
+        expiry: {
+          duration: 1,
+          unit: "minutes",
         },
-        "page_expiry": {
-          "duration": 10,
-          "unit": "minutes"
+        page_expiry: {
+          duration: 10,
+          unit: "minutes",
+        },
+        callbacks: {
+          finish: req.headers.referer || "example.com",
         },
       },
       {
@@ -77,7 +104,8 @@ const POST = async (req, res) => {
 
     res.status(201).json(response.data);
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong"});
+    client.query("ROLLBACK");
+    res.status(500).json({ message: "Something went wrong" });
   }
 };
 
