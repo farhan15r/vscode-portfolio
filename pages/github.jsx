@@ -53,7 +53,7 @@ const GithubPage = ({ repos, user, orgs }) => {
         </div>
         <div className={styles.contributions}>
           <GitHubCalendar
-            username={GITHUB_USERNAME}
+            username={user.login}
             theme={theme}
             hideColorLegend
             hideMonthLabels
