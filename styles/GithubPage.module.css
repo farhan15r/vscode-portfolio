@@ -8,6 +8,12 @@
   margin-bottom: 1.5rem;
 }
 
+/* .orgs h3,
+.repos h3
+{
+  padding: 1rem 0rem;
+} */
+
 .user > div {
   display: flex;
   flex-wrap: wrap;
@@ -32,6 +38,10 @@
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin: 1.5rem 0;
+}
+
+.orgs .container {
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
 }
 
 .title {

@@ -11,6 +11,11 @@ const explorerItems = [
     icon: 'react_icon.svg',
   },
   {
+    name: '.gitignore',
+    path: '/github',
+    icon: 'git_icon.svg',
+  },
+  {
     name: 'about.html',
     path: '/about',
     icon: 'html_icon.svg',
@@ -24,11 +29,6 @@ const explorerItems = [
     name: 'projects.js',
     path: '/projects',
     icon: 'js_icon.svg',
-  },
-  {
-    name: 'articles.json',
-    path: '/articles',
-    icon: 'json_icon.svg',
   },
   {
     name: 'donate.go',
