@@ -1,4 +1,3 @@
-
 const PAYMENT_METHODS = [
   {
     name: "GoPay",
@@ -23,10 +22,10 @@ const PAYMENT_METHODS = [
 ];
 
 const SHOWED_GITHUB_REPOS = [
-  'https://github.com/RashIO-Bangkit-Capstone/backend-rashio',
-  'https://github.com/farhan15r/vscode-portfolio',
-  'https://github.com/farhan15r/sea-cinema',
-  'https://github.com/farhan15r/go-latihan-clean-arch',
+  "https://github.com/RashIO-Bangkit-Capstone/backend-rashio",
+  "https://github.com/farhan15r/vscode-portfolio",
+  "https://github.com/farhan15r/sea-cinema",
+  "https://github.com/farhan15r/go-latihan-clean-arch",
 ];
 
 const config = {
@@ -39,6 +38,11 @@ const config = {
   TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
   GITHUB_API_KEY: process.env.GITHUB_API_KEY,
   GITHUB_USERNAME: process.env.GITHUB_USERNAME,
+  POSTGRES_HOST: process.env.POSTGRES_HOST,
+  POSTGRES_PORT: process.env.POSTGRES_PORT,
+  POSTGRES_USER: process.env.POSTGRES_USER,
+  POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD,
+  POSTGRES_DB: process.env.POSTGRES_DB,
   PAYMENT_METHODS,
   SHOWED_GITHUB_REPOS,
 };
