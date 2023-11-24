@@ -99,13 +99,17 @@ const POST = async (req, res) => {
           "content-type": "application/json",
           authorization: `Basic ${auth}`,
         },
+        timeout: 40000,
       }
     );
 
     res.status(201).json(response.data);
   } catch (error) {
     client.query("ROLLBACK");
+    console.error(`[ERROR]: ${error}`);
     res.status(500).json({ message: "Something went wrong" });
+  } finally {
+    client.release();
   }
 };
 

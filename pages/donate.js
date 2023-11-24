@@ -52,13 +52,19 @@ const DonatePage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/donate", {
-        name,
-        email,
-        amount,
-        message,
-        method: PAYMENT_METHODS[method].value,
-      });
+      const response = await axios.post(
+        "/api/donate",
+        {
+          name,
+          email,
+          amount,
+          message,
+          method: PAYMENT_METHODS[method].value,
+        },
+        {
+          timeout: 50000,
+        },
+      );
 
       if (response.data.token) {
         window.snap.pay(response.data.token);
@@ -68,11 +74,13 @@ const DonatePage = () => {
           message: response.data.message,
         });
       }
-
     } catch (error) {
       setAlert({
         type: "error",
-        message: error.response.data.message,
+        message:
+          error.response.data.message ||
+          error.message ||
+          "Something went wrong",
       });
     }
   };
