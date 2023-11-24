@@ -105,7 +105,7 @@ const POST = async (req, res) => {
 
     res.status(201).json(response.data);
   } catch (error) {
-    client.query("ROLLBACK");
+    await client.query("ROLLBACK");
     console.error(`[ERROR]: ${error}`);
     res.status(500).json({ message: "Something went wrong" });
   } finally {
@@ -116,6 +116,7 @@ const POST = async (req, res) => {
 export default async (req, res) => {
   if (req.method === "POST") {
     await POST(req, res);
+    return;
   } else {
     res.status(405).json({ message: "Method not allowed" });
   }

@@ -10,7 +10,7 @@ const pool = new Pool({
   ssl: Boolean(config.POSTGRES_SSL_MODE),
   max: 20,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  connectionTimeoutMillis: 10000,
 });
 
 export default pool;
