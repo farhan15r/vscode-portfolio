@@ -66,6 +66,14 @@
   font-size: 0.9rem;
   font-weight: bold;
   text-transform: uppercase;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form button:disabled {
+  background: var(--accent-color);
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .heading {

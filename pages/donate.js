@@ -4,6 +4,7 @@ import Head from "next/head";
 import config from "../utils/config";
 import axios from "axios";
 import Alert from "../components/Alert";
+import LoadingIcon from "../components/icons/LoadingIcon";
 import { useRouter } from "next/router";
 
 const DonatePage = () => {
@@ -12,6 +13,7 @@ const DonatePage = () => {
   const [amount, setAmount] = useState(5000);
   const [message, setMessage] = useState("");
   const [method, setMethod] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [alert, setAlert] = useState(null);
 
@@ -50,6 +52,7 @@ const DonatePage = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await axios.post(
@@ -63,10 +66,10 @@ const DonatePage = () => {
         },
         {
           timeout: 50000,
-        },
+        }
       );
 
-      if (response.data.token) {
+      if (response.data?.token) {
         window.snap.pay(response.data.token);
       } else {
         setAlert({
@@ -83,6 +86,7 @@ const DonatePage = () => {
           "Something went wrong",
       });
     }
+    setIsLoading(false);
   };
 
   return (
@@ -171,7 +175,10 @@ const DonatePage = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading && <LoadingIcon />}
+              Submit
+            </button>
           </form>
         </div>
       </div>
