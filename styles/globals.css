@@ -58,6 +58,78 @@
   background: rgb(0, 209, 178, 0.25);
 }
 
+.hapi-js {
+  border: 0.1rem solid rgb(0, 112, 243);
+}
+
+.hapi-js:hover {
+  background: rgba(0, 112, 243, 0.25);
+}
+
+.GCP {
+  border: 0.1rem solid rgb(6, 182, 212);
+}
+
+.GCP:hover {
+  background: rgba(6, 182, 212, 0.25);
+}
+
+.swagger {
+  border: 0.1rem solid rgb(255, 65, 84);
+}
+
+.swagger:hover {
+  background: rgba(255, 65, 84, 0.25);
+}
+
+.mySQL {
+  border: 0.1rem solid rgb(21, 114, 182);
+}
+
+.mySQL:hover {
+  background: rgba(21, 114, 182, 0.25);
+}
+
+.JOI {
+  border: 0.1rem solid rgb(255, 65, 84);
+}
+
+.JOI:hover {
+  background: rgba(255, 65, 84, 0.25);
+}
+
+.Nginx {
+  border: 0.1rem solid rgb(21, 114, 182);
+}
+
+.Nginx:hover {
+  background: rgba(21, 114, 182, 0.25);
+}
+
+.vercel {
+  border: 0.1rem solid rgb(0, 112, 243);
+}
+
+.vercel:hover {
+  background: rgba(0, 112, 243, 0.25);
+}
+
+.daisyui {
+  border: 0.1rem solid rgb(6, 182, 212);
+}
+
+.daisyui:hover {
+  background: rgba(6, 182, 212, 0.25);
+}
+
+.midtrans {
+  border: 0.1rem solid rgb(255, 65, 84);
+}
+
+.midtrans:hover {
+  background: rgba(255, 65, 84, 0.25);
+}
+
 .next {
   border: 2px solid rgb(0, 112, 243);
 }
