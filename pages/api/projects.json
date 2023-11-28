@@ -1,37 +1,37 @@
 [
   {
     "id": 1,
-    "name": "Driwwwle",
-    "image": "https://imgur.com/kbGs6zH.png",
-    "description": "A platform for web developers to showcase their projects",
-    "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
-    "source_code": "https://github.com/itsnitinr/driwwwle-v2",
-    "demo": "https://driwwwle.com/"
+    "name": "RashIO",
+    "image": "https://www.rashio.software/images/RashIO-Logo.png",
+    "description": "A mobile app for detecting skin diseases using AI",
+    "tags": ["next", "node", "tailwind"],
+    "source_code": "https://github.com/RashIO-Bangkit-Capstone/Website-RashIO",
+    "demo": "https://www.rashio.software/"
   },
   {
     "id": 2,
-    "name": "PCB Cupid",
-    "image": "https://imgur.com/tAZotn3.png",
-    "description": "E-commerce website for a PCB manufacturing company",
-    "tags": ["react", "node", "mongodb", "redux", "razorpay", "material-ui"],
+    "name": "RashIO BE (API)",
+    "image": "https://www.rashio.software/images/RashIO-Logo.png",
+    "description": "A API for detecting skin diseases using AI",
+    "tags": ["node", "Hapi JS", "GCP", "Swagger", "MySQL", "JOI", "Nginx"],
     "demo": "https://www.pcbcupid.com/"
   },
   {
     "id": 3,
-    "name": "HealthyWays",
-    "image": "https://imgur.com/8FFqaX8.png",
-    "description": "A food ordering platform for healthy and home-cooked meals",
-    "tags": ["react", "node", "mongodb", "redux", "razorpay", "material-ui"],
-    "source_code": "https://github.com/itsnitinr/healthyways",
-    "demo": "https://healthyways.herokuapp.com/"
+    "name": "VsCode Portfolio",
+    "image": "https://imgur.com/mKkz0iz.png",
+    "description": "A fork of VsCode Portfolio",
+    "tags": ["react", "node", "next", "vercel", "Midtrans"],
+    "source_code": "https://github.com/farhan15r/vscode-portfolio",
+    "demo": "https://www.farhan15r.live/"
   },
   {
     "id": 4,
-    "name": "VSCode Portfolio",
-    "image": "https://imgur.com/mKkz0iz.png",
-    "description": "A themeable and developer-centric portfolio based on the VSCode",
-    "tags": ["next", "css-modules"],
-    "source_code": "https://github.com/itsnitinr/vscode-portfolio",
-    "demo": "http://vscode-portfolio.vercel.app/"
+    "name": "SEA Cinema",
+    "image": "https://i.imgur.com/8FFqaX8.png&w=640&q=75",
+    "description": "A movie booking app",
+    "tags": ["next", "Daisy UI", "Tailwind", "node", "vercel"],
+    "source_code": "https://github.com/farhan15r/sea-cinema",
+    "demo": "https://sea-app.farhan15r.live//"
   }
 ]
