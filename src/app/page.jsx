@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Illustration from "@/components/Illustration";
 import styles from "@/styles/HomePage.module.css";
-import { useEffect } from "react";
 
 export default function page() {
   return (

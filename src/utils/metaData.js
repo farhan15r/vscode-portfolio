@@ -1,22 +1,6 @@
-import "@/styles/globals.css";
-import "@/styles/themes.css";
-import Layout from "@/components/Layout";
-
-export default function RootLayout({ children }) {
-  return (
-    <>
-      <html lang="en">
-        <body>
-          <Layout>{children}</Layout>
-        </body>
-      </html>
-    </>
-  );
-}
-
-export async function generateMetadata() {
+export function generateMetaData({ title }) {
   return {
-    title: "Farhan Ramadhan",
+    title: title || "Farhan Ramadhan",
     description: "Farhan Ramadhan is a back end developer",
     keywords:
       "Farhan Ramadhan, farhan15r, farhan, backend portfolio, farhan back end developer, farhan developer, farhan bangkit academy, farhan ramadhan portfolio, vscode-portfolio",
